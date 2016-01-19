@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@boats = @user.boats
 	end
 
 	def destroy

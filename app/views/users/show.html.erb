@@ -4,6 +4,13 @@
 <h1><%= @user.email %></h1>
 <h3><%= @user.fname %> <%= @user.lname %></h3>
 
+<strong><%= "Boats of #{@user.email}:" %> </strong>
+<ul>
+<% @boats.each do |b| %>
+	<li><%= link_to b.boatname, b %></li>
+<% end %>
+</ul>
+<br>
 <% if current_user.id == @user.id %>
 	<%= link_to "Edit User Info", edit_user_path %>
 <% end %>

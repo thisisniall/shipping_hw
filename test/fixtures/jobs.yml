@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cargo_size: 1
+  price: 
+  destination: 1
+  employer_id: 1
+  boat_id: 1
+
+two:
+  cargo_size: 1
+  price: 
+  destination: 1
+  employer_id: 1
+  boat_id: 1

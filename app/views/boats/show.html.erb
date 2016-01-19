@@ -1,0 +1,18 @@
+
+<ul>
+	<strong>Boat Name:</strong> <%= link_to @boat.boatname, @boat %>
+	<li><strong>User:</strong> <%= link_to @boat.user.email, @boat.user %></li>
+	<li><strong>Maximum Cargo:</strong> <%= @boat.max_cargo %></li>
+	<li><strong>Current Cargo:</strong> <%= @boat.current_cargo %></li>
+	<li><strong>Available Cargo:</strong> <%= @boat.available_cargo %></li>
+</ul>
+
+<br>
+<%= "Space Reserved For Current Job Info" %>
+<br>
+
+<% if current_user.id == @user.id %>
+	<%= link_to "Edit Boat Info", edit_boat_path %>
+<% else %>
+	<%= "You must be the owner of this boat to edit its information." %>	
+<% end %>

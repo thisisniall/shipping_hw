@@ -26,10 +26,12 @@ class BoatsController < ApplicationController
 	end
 
 	def create
+		@user = current_user
 		@boat = Boat.new(boat_params)
-		# @boat.available_cargo = params[:max_cargo]
-		# @boat.current_cargo = 0
 		if @boat.save
+			# sets avail=max on creation, re-saves
+			@boat.available_cargo = @boat.max_cargo
+			@boat.save
 			redirect_to '/'
 		else
 			redirect_to new_boat_path

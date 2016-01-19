@@ -1,0 +1,12 @@
+	<% @boats.each do |b| %>
+		<div class = 'userinfo'>
+			<ul><strong>Boat Name:</strong> <%= link_to b.boatname, b %>
+			<li><strong>User:</strong> <%= link_to b.user.email, b.user %></li>
+			<li><strong>Maximum Cargo:</strong> <%= b.max_cargo %></li>
+			<li><strong>Current Cargo:</strong> <%= b.current_cargo %></li>
+			<li><strong>Available Cargo:</strong> <%= b.available_cargo %></li>
+			<li><%= "Space Reserved For Current Job Info" %></li>
+			</ul>
+		</div>
+	<%end%>
+</ul>

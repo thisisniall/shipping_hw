@@ -3,3 +3,10 @@
 	<h3><%= link_to current_user.email, current_user %></h2>
 	<p><%= current_user.fname %> <%= current_user.lname %></p>
 </div>
+
+<h3>Your boats:</h3>
+<ul>
+<% @myboats.each do |b| %>
+	<li><%= link_to b.boatname, b %></li>
+<% end %>
+</ul>

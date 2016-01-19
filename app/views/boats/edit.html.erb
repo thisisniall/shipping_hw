@@ -1,0 +1,17 @@
+<% if @boat.user == current_user %>
+	<%= form_for @boat do |f|%>
+		<%= f.label :boatname, "Boat Name" %>
+		<%= f.text_field :boatname, :class => "user_input", :value => @boat.boatname %>
+		<br>
+		<strong><%= f.label :max_cargo, "Maximum Cargo - Warning: Make Sure The Boat Has No Jobs Before Altering This!!!" %></strong> <br>
+		<%= f.text_field :max_cargo, :class => "user_input", :value => @boat.max_cargo %>
+		<br>
+		<%= f.label :current_location, "Current Location" %>
+		<%= f.collection_select :current_location, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
+		<br>
+		<%= f.submit :class => "button" %>
+	<% end %>
+<br>
+<strong>"Placeholder for Jobs Info"</strong>
+
+	<% end %>
