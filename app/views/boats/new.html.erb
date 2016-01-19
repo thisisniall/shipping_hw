@@ -1,0 +1,13 @@
+<%= form_for @boat do |b| %>
+	<%= b.label :boatname %>
+	<%= b.text_field :boatname %>
+	<%= b.label :max_cargo, :available_cargo %>
+	<%= b.text_field :max_cargo && :available_cargo %>
+	<%= b.hidden_field :current_cargo, :value => 0 %>
+	<select name="boat[location_id]">
+	    <% Location.all.each do |loc| %>
+	        <option value="<%= loc.id %>"><%= loc.location_name %></option>
+	    <% end %>
+	</select>
+	<%= b.submit %>
+<% end %>

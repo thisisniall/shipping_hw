@@ -1,0 +1,23 @@
+<h1>Users#edit</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+	
+	<% if @user == current_user %>
+		<%= form_for @user do |f|%>
+			<%= f.label :email %>
+			<%= f.text_field :username, :class => "user_input", :value => @user.email %>
+			<br>
+			<%= f.label :fname, "First Name" %>
+			<%= f.text_field :fname, :class => "user_input", :value => @user.fname %>
+			<br>
+			<%= f.label :lname, "Last Name" %>
+			<%= f.text_field :lname, :class => "user_input", :value => @user.lname %>
+			<br>
+			<%= f.label :password %>
+			<%= f.password_field :password, :class => "user_input" %>
+			<br>
+			<%= f.label :password, "Confirm New Password" %>
+			<%= f.password_field :password_confirmation, :class => "user_input" %>
+			<br>
+			<%= f.submit :class => "button" %>
+		<% end %>
+	<% end %>

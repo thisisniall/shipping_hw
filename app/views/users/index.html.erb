@@ -1,0 +1,16 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+
+
+
+	<% @users.each do |u| %>
+		<div class = 'userinfo'>
+			<ul>
+			<strong>Username:</strong> <%= link_to u.email, u %>
+			<li><strong>First Name:</strong> <%= u.fname %></li>
+			<li><strong>Last Name:</strong> <%= u.lname %></li>
+			<li><strong>Boats:</strong> <%= "Some Boats Code Here"%></li>
+			</ul>
+		</div>
+	<%end%>
+</ul>

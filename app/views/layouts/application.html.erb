@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ValidationWs</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% elsif flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<% if current_user %>
+	<header>
+		<p> You are currently logged in as <%= current_user.email %></p>	
+		<nav>
+			<ul>
+				<li> <%= link_to "Home", '/' %></li>
+				<li> <%= link_to "Account Settings", edit_user_path(current_user) %> </li>
+				<li> <%= link_to "Log Out", '/log-out' %> </li>
+			</ul>
+		</nav>
+</header>
+<%else %>
+	<header>
+		<nav>
+			<ul>
+				<li> <%= link_to "Log In", log_in_path %> </li>
+				<li> <%= link_to "Sign Up", new_user_path %> </li>
+			</ul>
+		</nav>
+	</header>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

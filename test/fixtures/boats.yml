@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  boatname: MyString
+  max_cargo: 1
+  available_cargo: 1
+  current_cargo: 1
+  current_location: 1
+  user_id: 1
+
+two:
+  boatname: MyString
+  max_cargo: 1
+  available_cargo: 1
+  current_cargo: 1
+  current_location: 1
+  user_id: 1
