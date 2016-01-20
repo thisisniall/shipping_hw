@@ -13,6 +13,8 @@
 			<%= Boat.find(j.boat_id).boat_name %>
 		<% end %>		
 	</li>
+	<% if current_user == j.user %>
 	<li> <%=link_to "Edit Job Information", edit_job_path(j.id) %> </li>
+	<% end %>
 </ul>
 <% end %>

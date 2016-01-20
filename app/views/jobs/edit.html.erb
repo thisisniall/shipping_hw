@@ -1,0 +1,25 @@
+<% if current_user == @job.user %>
+	<%= form_for @job do |j| %>
+		<%= j.label :job_name %>
+		<%= j.text_field :job_name, :value => @job.job_name %>
+		<br>
+		<%= j.label :cargo_size %>
+		<%= j.text_field :cargo_size, :value => @job.cargo_size %>
+		<br>
+		<%= j.label :price %>
+		<%= j.text_field :price, :value => @job.price %>
+		<br>
+		<%= j.label :cargo_description %>
+		<%= j.text_field :cargo_description, :value => @job.cargo_description %>
+		<br>
+		<%= j.label :origin %>
+		<%= j.collection_select :origin, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
+		<br>
+		<%= j.label :destination %>
+		<%= j.collection_select :destination, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
+		<br>
+		<%= j.submit %>
+	<% end %>
+<% else %>
+	<h2> You need to log in as the owner/employer of this job in order to edit it. The owner of this job is <%=@job.user.email %></h2>
+<% end %>	
