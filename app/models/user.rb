@@ -6,6 +6,5 @@ class User < ActiveRecord::Base
 	validates_presence_of :password, on: :create
 
 	has_many :boats, dependent: :destroy
-	has_many :jobs, #dependent: :destroy ???
-	# not sure if dependent:destroy makes sense here
+	has_many :jobs 
 end

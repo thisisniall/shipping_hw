@@ -1,0 +1,18 @@
+<h3>All Jobs:</h3>
+<% Job.all.each do |j| %>
+<ul><strong>Job Name: <%=link_to j.job_name, j %></strong>
+	<li>Cargo Size: <%=	j.cargo_size %> </li>
+	<li>Cargo Description: <%=	j.cargo_description %></li>
+	<li>Employer: <%= User.find(j.user_id).email %> </li>
+	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
+	<li>Destination: <%= Location.find(j.destination).location_name %></li>
+	<li>Boat (If Applicable):
+		<% if j.boat_id == nil %>
+			<%=" No Boat Has Taken This Job" %>
+		<% else %>
+			<%= Boat.find(j.boat_id).boat_name %>
+		<% end %>		
+	</li>
+	<li> <%=link_to "Edit Job Information", edit_job_path(j.id) %> </li>
+</ul>
+<% end %>

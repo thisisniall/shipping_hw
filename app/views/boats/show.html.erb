@@ -9,6 +9,13 @@
 
 <br>
 <%= "Space Reserved For Current Job Info" %>
+<% @boat.jobs.each do |j| %>
+<ul>Job Name: <%=j.job_name %>
+	<li>Cargo Size: <%=	j.cargo_size %> </li>
+	<li>Cargo Description: <%=	j.cargo_description %></li>
+	<li>Employer: <%= User.find(j.employer_id).email %> </li>
+	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
+	<li>Destination: <%= Location.find(j.destination).location_name %></li>
 <br>
 
 <% if current_user.id == @user.id %>

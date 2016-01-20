@@ -1,0 +1,24 @@
+<h1> NEW JOBS PAGE </h1>
+
+<%= form_for @job do |j| %>
+	<%= j.label :job_name %>
+	<%= j.text_field :job_name %>
+	<br>
+	<%= j.label :cargo_size %>
+	<%= j.text_field :cargo_size %>
+	<br>
+	<%= j.label :price %>
+	<%= j.text_field :price %>
+	<br>
+	<%= j.label :cargo_description %>
+	<%= j.text_field :cargo_description %>
+	<br>
+	<%= j.hidden_field :user_id, :value => current_user.id %>
+	<%= j.label :origin %>
+	<%= j.collection_select :origin, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
+	<br>
+	<%= j.label :destination %>
+	<%= j.collection_select :destination, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
+	<br>
+	<%= j.submit %>
+<% end %>

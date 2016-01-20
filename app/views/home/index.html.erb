@@ -6,7 +6,36 @@
 
 <h3>Your boats:</h3>
 <ul>
-<% @myboats.each do |b| %>
+<% current_user.boats.each do |b| %>
 	<li><%= link_to b.boatname, b %></li>
 <% end %>
 </ul>
+
+<h3>Your Posted Jobs:</h3>
+<% current_user.jobs.each do |j| %>
+<ul><strong>Job Name: <%=link_to j.job_name, j %></strong>
+	<li>Cargo Size: <%=	j.cargo_size %> </li>
+	<li>Cargo Description: <%=	j.cargo_description %></li>
+	<li>Employer: <%= User.find(j.user_id).email %> </li>
+	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
+	<li>Destination: <%= Location.find(j.destination).location_name %></li>
+	<li>Boat (If Applicable):
+		<% if j.boat_id == nil %>
+			<%=" No Boat Has Taken This Job" %>
+		<% else %>
+			<%= Boat.find(j.boat_id).boat_name %>
+		<% end %>		
+	</li>
+</ul>
+<% end %>
+
+<h3>Open Jobs</h3>
+<% @openjobs.each do |j| %>
+<ul><strong>Job Name: <%=link_to j.job_name, j %></strong>
+	<li>Cargo Size: <%=	j.cargo_size %> </li>
+	<li>Cargo Description: <%=	j.cargo_description %></li>
+	<li>Employer: <%= User.find(j.user_id).email %> </li>
+	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
+	<li>Destination: <%= Location.find(j.destination).location_name %></li>
+</ul>
+<% end %>
