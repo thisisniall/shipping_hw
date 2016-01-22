@@ -7,19 +7,21 @@
 	<li><strong>Available Cargo:</strong> <%= @boat.available_cargo %></li>
 </ul>
 
-<br>
-<%= "Space Reserved For Current Job Info" %>
-<% @boat.jobs.each do |j| %>
-<ul>Job Name: <%=j.job_name %>
-	<li>Cargo Size: <%=	j.cargo_size %> </li>
-	<li>Cargo Description: <%=	j.cargo_description %></li>
-	<li>Employer: <%= User.find(j.employer_id).email %> </li>
-	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
-	<li>Destination: <%= Location.find(j.destination).location_name %></li>
-<br>
-
 <% if current_user.id == @user.id %>
 	<%= link_to "Edit Boat Info", edit_boat_path %>
 <% else %>
 	<%= "You must be the owner of this boat to edit its information." %>	
 <% end %>
+
+<br>
+<h2>This Boat Has Accepted <%=@boat.jobs.count%> Job(s)</h2>
+<% @boat.jobs.each do |j| %>
+<ul>Job Name: <%=link_to j.job_name, j %>
+	<li>Cargo Size: <%=	j.cargo_size %> </li>
+	<li>Cargo Description: <%=	j.cargo_description %></li>
+	<li>Employer: <%= link_to User.find(j.user_id).email, j.user %> </li>
+	<li>Origin: <%=	Location.find(j.origin).location_name %></li>
+	<li>Destination: <%= Location.find(j.destination).location_name %></li>
+<br>
+<% end %>
+

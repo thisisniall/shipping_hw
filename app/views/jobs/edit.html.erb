@@ -18,6 +18,9 @@
 		<%= j.label :destination %>
 		<%= j.collection_select :destination, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
 		<br>
+		<%= j.label :boat_id %>
+		<%= j.collection_select :boat_id, @enoughspace, :id, :boatname, {:prompt => "Select a Boat!"} %>
+		<br>
 		<%= j.submit %>
 	<% end %>
 <% else %>

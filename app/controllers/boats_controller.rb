@@ -51,6 +51,6 @@ class BoatsController < ApplicationController
 	private
 
 	def boat_params
-		params.require(:boat).permit(:boatname, :max_cargo, :current_cargo, :available_cargo, :current_location).merge(user_id: @user.id)
+		params.require(:boat).permit(:boatname, :max_cargo, :current_cargo, :available_cargo, :current_location).merge(user_id: current_user.id)
 	end
 end

@@ -11,7 +11,14 @@
 		<br>
 		<%= f.submit :class => "button" %>
 	<% end %>
+<% else %>
+	<h3>Only the owner of this boat can edit its information.</h3>
+<% end %>
 <br>
-<strong>"Placeholder for Jobs Info"</strong>
-
+<h3>This Boat has currently accepted the following jobs:</h3>
+<ul>
+	<% @boat.jobs.each do |j| %>
+		<li><%=link_to j.job_name, j %></li>
 	<% end %>
+</ul>
+	

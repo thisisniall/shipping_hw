@@ -8,10 +8,16 @@
 		<% if @job.boat_id == nil %>
 			<%=" No Boat Has Taken This Job" %>
 		<% else %>
-			<%= Boat.find(j.boat_id).boat_name %>
+			<%= link_to Boat.find(@job.boat_id).boatname, boat_path(@job.boat_id) %>
 		<% end %>		
 	</li>
 	<% if current_user == @job.user %>
 	<li> <%=link_to "Edit Job Information", edit_job_path(@job.id) %> </li>
 	<% end %>
 </ul>
+
+<h3>Assign this job to one of your boats</h3>
+<%= form_for @job do |f|%>
+<%= f.collection_select :boat_id, @enoughspace, :id, :boatname, {:prompt => "Select a Boat!"} %>
+<%= f.submit %>
+<% end %>

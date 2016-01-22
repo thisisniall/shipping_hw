@@ -23,7 +23,7 @@
 		<% if j.boat_id == nil %>
 			<%=" No Boat Has Taken This Job" %>
 		<% else %>
-			<%= Boat.find(j.boat_id).boat_name %>
+			<%= Boat.find(j.boat_id).boatname %>
 		<% end %>		
 	</li>
 		<% if current_user == j.user %>
