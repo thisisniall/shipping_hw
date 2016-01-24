@@ -1,5 +1,4 @@
-<h1> NEW JOBS PAGE </h1>
-
+<h2> New Job:</h2>
 <%= form_for @job do |j| %>
 	<%= j.label :job_name %>
 	<%= j.text_field :job_name %>
@@ -20,5 +19,5 @@
 	<%= j.label :destination %>
 	<%= j.collection_select :destination, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
 	<br>
-	<%= j.submit %>
+	<%= j.submit :class => "button"%>
 <% end %>

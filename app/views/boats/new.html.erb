@@ -1,10 +1,14 @@
+<h2>New Boat:</h2>
 <%= form_for @boat do |b| %>
 	<%= b.label :boatname %>
 	<%= b.text_field :boatname %>
-	<%= b.label :max_cargo, :available_cargo %>
+	<br>
+	<%= b.label :max_cargo %>
 	<%= b.text_field :max_cargo %>
+	<br>
 	<%= b.hidden_field :current_cargo, :value => 0 %>
 	<%= b.collection_select :current_location, Location.all, :id, :location_name, {:prompt => "Select a Location!"} %>
-	<%= b.submit %>
+	<br>
+	<%= b.submit :class => "button" %>
 <% end %>
 

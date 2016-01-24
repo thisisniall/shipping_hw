@@ -8,34 +8,31 @@
 </head>
 <body>
 
-<% if flash[:alert] %>
-	<%= flash[:alert] %>
-<% elsif flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
-
-<% if current_user %>
-	<header>
-		<p> You are currently logged in as <%= current_user.email %></p>	
+<% if current_user%>		
 		<nav>
-			<ul>
-				<li> <%= link_to "Home", '/' %></li>
-				<li> <%= link_to "Account Settings", edit_user_path(current_user) %> </li>
-				<li> <%= link_to "Log Out", '/log-out' %> </li>
+			<ul class="nav1">
+				<li><%= link_to current_user.email, '/' %></li>
 				<li><%= link_to "Create a New Boat", new_boat_path %> </li>
 				<li><%= link_to "Create a New Job", new_job_path %> </li>
 			</ul>
+			<ul class="nav2">
+				<li> <%= link_to "Account Settings", edit_user_path(current_user) %> </li>
+				<li> <%= link_to "Log Out", '/log-out' %> </li>
+			</ul>	
 		</nav>
-</header>
-<%else %>
-	<header>
+	<%else %>
 		<nav>
-			<ul>
+			<ul class="nav1">
 				<li> <%= link_to "Log In", log_in_path %> </li>
 				<li> <%= link_to "Sign Up", new_user_path %> </li>
 			</ul>
 		</nav>
-	</header>
+<% end %>
+
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% elsif flash[:notice] %>
+	<%= flash[:notice] %>
 <% end %>
 
 <%= yield %>

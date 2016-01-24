@@ -1,9 +1,5 @@
-<div>
-	<h2>You are logged in as:</h2>
-	<h3><%= link_to current_user.email, current_user %></h2>
-	<p><%= current_user.fname %> <%= current_user.lname %></p>
-</div>
-
+<h2>Hello <%= current_user.fname %> <%= current_user.lname %> (a.k.a. <%= link_to current_user.email, current_user %>)</h2>
+	
 <h3>Your boats:</h3>
 <ul>
 <% current_user.boats.each do |b| %>

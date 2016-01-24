@@ -1,3 +1,4 @@
+<h2>Edit Job</h2>
 <% if current_user == @job.user %>
 	<%= form_for @job do |j| %>
 		<%= j.label :job_name %>
@@ -21,8 +22,8 @@
 		<%= j.label :boat_id %>
 		<%= j.collection_select :boat_id, @enoughspace, :id, :boatname, {:prompt => "Select a Boat!"} %>
 		<br>
-		<%= j.submit %>
+		<%= j.submit :class => "button"%>
 	<% end %>
 <% else %>
-	<h2> You need to log in as the owner/employer of this job in order to edit it. The owner of this job is <%=@job.user.email %></h2>
+	<h1> You need to log in as the owner/employer of this job in order to edit it. The owner of this job is <%=@job.user.email %></h1>
 <% end %>	

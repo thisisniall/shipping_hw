@@ -1,0 +1,111 @@
+/*@import "bourbon";
+@import "home";
+@import "users";
+@import "boats";
+@import "jobs";*/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+body {
+	font-family: 'Helvetica';
+	margin: 0;
+	background-color: #f1f2f0;
+}
+
+a {
+	color: #37bbe4;
+	text-decoration: none;
+}
+
+ul:after {
+	content: " "; clear: both; display: block;
+}
+
+h2 {
+	margin-top: 50px
+}
+
+nav {
+	font-family: 'Helvetica';
+	background-color: #e1e0dd;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	top: 0;
+	margin-bottom: 50px;
+	padding: 3px
+}
+
+nav a {
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #35342f;
+	padding: 3px 3px;
+	border-radius: 3px;
+}
+
+nav a:hover {
+	color: #37bbe4;
+	}
+
+nav ul {
+	display: inline;
+	margin: 0 auto;
+	padding: 0;
+}
+
+form {
+	margin-top: 20px;
+}
+
+.nav1{
+	width: 60%;
+	float: left;
+	padding-bottom: 10px;
+}
+
+.nav2{
+	width: 40%;
+	float: right;
+	padding-bottom: 10px;
+}
+
+.nav1 li {
+	float: left;
+	display: inline;
+	padding-top: 5px;
+	margin-right: 2%;
+	margin-left: 1%;
+}
+
+.nav2 li {
+	float: right;
+	display: inline;
+	padding-top: 5px;
+	margin-right: 4%;
+	margin-left: 1%;
+}
+
+.button {
+	border: 2px solid black;
+	padding: 2px;
+	margin: 2px;
+	font-size: 13px;
+	background-color: #f1f2f0;
+	font-weight: 700;
+	clear: both;
+}

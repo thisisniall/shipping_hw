@@ -1,3 +1,4 @@
+<h2>Job Information:</h2>
 <ul><strong>Job Name: <%=link_to @job.job_name%></strong>
 	<li>Cargo Size: <%=	@job.cargo_size %> </li>
 	<li>Cargo Description: <%=	@job.cargo_description %></li>
@@ -19,5 +20,5 @@
 <h3>Assign this job to one of your boats</h3>
 <%= form_for @job do |f|%>
 <%= f.collection_select :boat_id, @enoughspace, :id, :boatname, {:prompt => "Select a Boat!"} %>
-<%= f.submit %>
+<%= f.submit :class => "button"%>
 <% end %>
