@@ -27,3 +27,9 @@
 <% else %>
 	<h1> You need to log in as the owner/employer of this job in order to edit it. The owner of this job is <%=@job.user.email %></h1>
 <% end %>	
+
+<% if @job.user == current_user %>
+	<h2>Delete Job</h2>
+	<%= link_to "Delete Job", @job, method: :delete, :class => "button" %>
+	<br>
+<% end %>

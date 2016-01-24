@@ -22,4 +22,9 @@
 		<li><%=link_to j.job_name, j %></li>
 	<% end %>
 </ul>
-	
+
+<% if @boat.user == current_user %>
+	<h2>Delete Boat</h2>
+	<%= link_to "Delete Boat", @boat, method: :delete, :class => "button" %>
+	<br>
+<% end %>	

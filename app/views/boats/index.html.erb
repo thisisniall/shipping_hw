@@ -6,7 +6,7 @@
 			<li><strong>Maximum Cargo:</strong> <%= b.max_cargo %></li>
 			<li><strong>Current Cargo:</strong> <%= b.current_cargo %></li>
 			<li><strong>Available Cargo:</strong> <%= b.available_cargo %></li>
-			<li><%= "Space Reserved For Current Job Info" %></li>
+			<li>This Boat Has Accepted <%=b.jobs.count%> Job(s)</li>
 			</ul>
 		</div>
 	<%end%>

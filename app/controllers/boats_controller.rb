@@ -44,6 +44,9 @@ class BoatsController < ApplicationController
 
 	def destroy
 		@boat = Boat.find(params[:id])
+		@boat.jobs.each do |j|
+			j.update_attribute(:boat_id,nil)
+		end
 		@boat.destroy
 		redirect_to boats_path
 	end

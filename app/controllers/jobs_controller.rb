@@ -56,6 +56,12 @@ class JobsController < ApplicationController
 
 	def destroy
 		@job = Job.find(params[:id])
+		# boats get their space back if a job is deleted
+		if @job.is_there_an_old_boat == true
+	  		@oldboat = Boat.find(@job.boat_id)
+		  	@oldboat.update_attributes(available_cargo: @oldboat.available_cargo + @job.cargo_size)
+		  	@oldboat.update_attributes(current_cargo: @oldboat.current_cargo - @job.cargo_size)
+	  	end
 		@job.destroy
 		# may need to do some boat updating here!!!
 		redirect_to '/'
