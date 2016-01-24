@@ -6,4 +6,13 @@ class Job < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :boat
+
+	def is_there_an_old_boat
+		if self.boat_id == nil
+			return false
+		else
+			return true
+		end
+	end
+
 end

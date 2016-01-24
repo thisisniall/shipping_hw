@@ -20,22 +20,22 @@ class JobsController < ApplicationController
 	end
 
 	def update
+		#byebug
+		puts params.inspect
 	  	@job = Job.find(params[:id])
-	  	# @oldboat methods here re-add the space to the boat that curently has the job
-	  	
-	  	if	@oldboat 
-	  	@oldboat = Boat.find(@job.boat_id)
-	  	@oldboat.update_attributes(available_cargo: @oldboat.available_cargo - @job.cargo_size)
-	  	@oldboat.update_attributes(available_cargo: @oldboat.current_cargo + @job.cargo_size)
+	  	# @oldboat methods here re-adds the space to the boat that curently has the job
+	  	#is_there_an_old_boat is a method in Job model
+	  	if @job.is_there_an_old_boat == true
+	  		@oldboat = Boat.find(@job.boat_id)
+		  	@oldboat.update_attributes(available_cargo: @oldboat.available_cargo + @job.cargo_size)
+		  	@oldboat.update_attributes(current_cargo: @oldboat.current_cargo - @job.cargo_size)
 	  	end
-	  	# @oldboat.update(boat_params)
-	  	# @oldboat.save
 	  	# new boat is selected from dropdown menu, which is only populated by boats with enough space (and proper user id)
-	  	@newboat = Boat.find(@job.boat_id)
-	  	@newboat.update_attributes(available_cargo: @newboat.available_cargo - @job.cargo_size)
-	  	@newboat.update_attributes(available_cargo: @newboat.current_cargo + @job.cargo_size)
-	  	# @newboat.update(boat_params)
-	  	# @newboat.save
+	  	if params[:job][:boat_id]
+		  	@newboat = Boat.find(params[:job][:boat_id]) #changes still need
+		  	@newboat.update_attributes(available_cargo: @newboat.available_cargo - @job.cargo_size)
+		  	@newboat.update_attributes(current_cargo: @newboat.current_cargo + @job.cargo_size)
+	 	end
 	  	# save and redirect
 	  	@job.update(job_params)
 	  	@job.save
