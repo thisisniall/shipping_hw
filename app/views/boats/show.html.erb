@@ -7,10 +7,11 @@
 	<li><strong>Available Cargo:</strong> <%= @boat.available_cargo %></li>
 </ul>
 
-<%= image_tag @boat.avatar.url %>
 <%= image_tag @boat.avatar.url(:medium) %>
 
+
 <% if current_user.id == @user.id %>
+<br>
 	<%= link_to "Edit Boat Info", edit_boat_path, :class => "button" %>
 <% else %>
 	<%= "You must be the owner of this boat to edit its information." %>	
