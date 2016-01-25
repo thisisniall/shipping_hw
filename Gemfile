@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-#installing bourbon to try and make styling easier at bradley's suggestion
-gem 'bourbon'
-# neat for grid layout
-gem 'neat'
+
+#for images
+gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
